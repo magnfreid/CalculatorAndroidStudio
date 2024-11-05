@@ -2,18 +2,18 @@
 <resources>
 
     <style name="BaseButtonStyle" parent="Widget.Material3.Button.OutlinedButton">
-        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:padding">4dp</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_margin">2dp</item>
     </style>
 
     <style name="DigitButtonStyle" parent="BaseButtonStyle">
     </style>
 
     <style name="OperatorButtonStyle" parent="BaseButtonStyle">
-        <item name="backgroundTint">@color/operator_background_tint</item>
-        <item name="android:textColor">@color/operator_text_color</item>
+        <item name="backgroundTint">@color/calculator_light_secondary</item>
+        <item name="android:textColor">@color/operator_text_color</item>"
     </style>
 </resources>

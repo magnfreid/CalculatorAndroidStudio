@@ -19,4 +19,6 @@
     <string name="square_root">√</string>
     <string name="dot">.</string>
     <string name="_0">0</string>
+    <string name="sumText">""</string>
+    <string name="calculatetext">0</string>
 </resources>

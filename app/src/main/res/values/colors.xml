@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Theme colors-->
+    <color name="calculator_light_primary">#FF9100</color>
+    <color name="calculator_light_secondary">#F9C27A</color>
+    <color name="calculator_text_color">#5269E0</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="operator_background_tint">#8E4B12B2</color>
-    <color name="operator_text_color">#FFFFFFFF</color>
+    <color name="operator_text_color">#E7EAF0</color>
 </resources>
