@@ -10,9 +10,8 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
         android:columnCount="4"
-        android:padding="15dp"
+        android:padding="5dp"
         android:rowCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,8 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:layout_marginBottom="40dp"
+            android:padding="6dp"
             android:layout_columnSpan="4"
             android:layout_columnWeight="4"
             >

@@ -78,3 +78,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+//TODO make sure only one dot can be used
+//TODO fix landscape layout
