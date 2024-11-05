@@ -31,23 +31,31 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/sumDisplayTV"
-                android:textSize="34sp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sumText"
                 android:textAlignment="viewEnd"
-                app:layout_constraintBaseline_toTopOf="@id/calculateDisplayTV"
+                android:textSize="34sp"
+                app:layout_constraintBaseline_toTopOf="@id/operatorDisplayTV"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/calculateDisplayTV"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/operatorDisplayTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textAlignment="viewEnd"
+                android:textSize="34sp"
+                app:layout_constraintBottom_toTopOf="@+id/calculateDisplayTV"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/calculateDisplayTV"
                 android:textSize="44sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/calculatetext"
+                android:text="@string/calculateText"
                 android:textAlignment="viewEnd"
                 app:layout_constraintTop_toBottomOf="@+id/sumDisplayTV"
                 app:layout_constraintBottom_toBottomOf="parent"

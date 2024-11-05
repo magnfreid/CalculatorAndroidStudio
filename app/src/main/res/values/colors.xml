@@ -8,5 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="operator_background_tint">#8E4B12B2</color>
-    <color name="operator_text_color">#E7EAF0</color>
+    <color name="theme_secondary_text_color">#E7EAF0</color>
 </resources>

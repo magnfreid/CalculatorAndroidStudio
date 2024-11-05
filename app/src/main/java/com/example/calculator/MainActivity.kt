@@ -7,11 +7,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.calculator.databinding.ActivityMainBinding
 
-private lateinit var binding: ActivityMainBinding
+lateinit var binding: ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-    val binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(binding.root)
@@ -20,11 +20,12 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-
         val sumDisplay = binding.sumDisplayTV
-        var calculateDisplay = binding.calculateDisplayTV
-
+        val operatorDisplay = binding.operatorDisplayTV
+        val calculateDisplay = binding.calculateDisplayTV
+        val clearButton = binding.clearButton
+        val calculateButton = binding.calculateButton
+        val buttonHandler = ButtonHandler(sumDisplay, operatorDisplay, calculateDisplay)
         val digitsButtons = listOf(
             binding.zeroButton,
             binding.oneButton,
@@ -35,9 +36,9 @@ class MainActivity : AppCompatActivity() {
             binding.sixButton,
             binding.sevenButton,
             binding.eightButton,
-            binding.nineButton
+            binding.nineButton,
+            binding.dotButton
         )
-
         val operationsButtons = listOf(
             binding.plusButton,
             binding.minusButton,
@@ -45,27 +46,23 @@ class MainActivity : AppCompatActivity() {
             binding.divideButton,
             binding.powerOfButton,
             binding.squareRootButton,
-            binding.clearButton,
-            binding.dotButton
         )
 
+        clearButton.setOnClickListener {
+            buttonHandler.clearButtonClick()
+        }
+        calculateButton.setOnClickListener {
+            buttonHandler.calculateButtonClick()
+        }
         for (digit in digitsButtons) {
             digit.setOnClickListener {
-                val calculateDisplayText = calculateDisplay.text.toString() + digit.text
-                calculateDisplay.text = calculateDisplayText
+                buttonHandler.digitButtonClick(digit.text.toString())
             }
         }
-
-        for(operator in operationsButtons) {
-            operator.setOnClickListener{
-                val sumText = calculateDisplay.text.toString()+operator.text
-                sumDisplay.text = sumText
-                calculateDisplay.text =""
-
+        for (operator in operationsButtons) {
+            operator.setOnClickListener {
+                buttonHandler.operatorButtonClick(operator.text.toString())
             }
         }
-
     }
-
-
 }

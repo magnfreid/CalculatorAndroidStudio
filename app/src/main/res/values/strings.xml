@@ -14,11 +14,11 @@
     <string name="sum">=</string>
     <string name="multiply">X</string>
     <string name="ac">AC</string>
-    <string name="x_2">x^2</string>
+    <string name="x_2">x^</string>
     <string name="divide">÷</string>
     <string name="square_root">√</string>
     <string name="dot">.</string>
     <string name="_0">0</string>
     <string name="sumText">""</string>
-    <string name="calculatetext">0</string>
+    <string name="calculateText">""</string>
 </resources>

@@ -13,7 +13,7 @@
     </style>
 
     <style name="OperatorButtonStyle" parent="BaseButtonStyle">
-        <item name="backgroundTint">@color/calculator_light_secondary</item>
-        <item name="android:textColor">@color/operator_text_color</item>"
+        <item name="backgroundTint">?attr/colorSecondary</item>
+        <item name="android:textColor">?attr/colorOnSecondary</item>
     </style>
 </resources>
