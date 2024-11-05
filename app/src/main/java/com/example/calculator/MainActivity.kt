@@ -66,9 +66,15 @@ class MainActivity : AppCompatActivity() {
         }
         for (button in digitsButtons) {
             button.setOnClickListener {
-                buttonHandler.digitButtonClick(button)
+                if (button != binding.dotButton) {
+                    buttonHandler.digitButtonClick(button)
+                }
+                else if(!binding.calculateDisplayTV.text.contains('.') && binding.calculateDisplayTV.text.isNotEmpty()){
+                    buttonHandler.digitButtonClick(button)
+                }
             }
         }
+
         for (button in operatorButtons) {
             button.setOnClickListener {
                 if (binding.calculateDisplayTV.text.toString() != "" && binding.operatorDisplayTV.text.toString() == "") {
@@ -79,5 +85,4 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-//TODO make sure only one dot can be used
 //TODO fix landscape layout
