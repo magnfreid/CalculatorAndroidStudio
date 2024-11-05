@@ -60,19 +60,19 @@ class MainActivity : AppCompatActivity() {
             buttonHandler.clearButtonClick()
         }
         binding.calculateButton.setOnClickListener {
-            if (binding.calculateDisplayTV.text.toString() != "") {
+            if (binding.calculateDisplayTV.text.toString() != "" && binding.operatorDisplayTV.text.toString() != "") {
                 buttonHandler.calculateButtonClick()
             }
         }
-        for (digit in digitsButtons) {
-            digit.setOnClickListener {
-                buttonHandler.digitButtonClick(digit.text.toString())
+        for (button in digitsButtons) {
+            button.setOnClickListener {
+                buttonHandler.digitButtonClick(button)
             }
         }
-        for (operator in operatorButtons) {
-            operator.setOnClickListener {
-                if (binding.calculateDisplayTV.text.toString() != "") {
-                    buttonHandler.operatorButtonClick(operator.text.toString())
+        for (button in operatorButtons) {
+            button.setOnClickListener {
+                if (binding.calculateDisplayTV.text.toString() != "" && binding.operatorDisplayTV.text.toString() == "") {
+                    buttonHandler.operatorButtonClick(button)
                 }
             }
         }
