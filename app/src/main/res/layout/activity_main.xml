@@ -7,157 +7,173 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ListView
+        android:id="@+id/lv_history"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/gl_calculator_grid"/>
+
     <GridLayout
+        android:id="@+id/gl_calculator_grid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:columnCount="4"
         android:padding="5dp"
         android:rowCount="4"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/lv_history">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="6dp"
             android:layout_columnSpan="4"
             android:layout_columnWeight="4"
-            >
+            android:background="@drawable/display_border_drawable"
+            android:padding="6dp">
 
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/sumDisplayTV"
+                android:id="@+id/tv_upper"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/sumText"
                 android:textAlignment="viewEnd"
                 android:textSize="34sp"
-                app:layout_constraintBaseline_toTopOf="@id/operatorDisplayTV"
+                app:layout_constraintBaseline_toTopOf="@id/tv_operator"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/operatorDisplayTV"
+                android:id="@+id/tv_operator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
                 android:textAlignment="viewEnd"
                 android:textSize="34sp"
-                app:layout_constraintBottom_toTopOf="@+id/calculateDisplayTV"
+                app:layout_constraintBottom_toTopOf="@+id/tv_lower"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/calculateDisplayTV"
-                android:textSize="44sp"
+                android:id="@+id/tv_lower"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/calculateText"
                 android:textAlignment="viewEnd"
-                app:layout_constraintTop_toBottomOf="@+id/sumDisplayTV"
+                android:textSize="44sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_upper" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/clear_button"
+            android:id="@+id/btn_clear"
             style="@style/OperatorButtonStyle"
             android:text="@string/ac" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/square_root_button"
+            android:id="@+id/btn_square_root"
             style="@style/OperatorButtonStyle"
             android:text="@string/square_root" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/power_of_button"
+            android:id="@+id/btn_pow_of"
             style="@style/OperatorButtonStyle"
             android:text="@string/x_2" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/divide_button"
+            android:id="@+id/btn_divide"
             style="@style/OperatorButtonStyle"
             android:text="@string/divide" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/seven_button"
+            android:id="@+id/btn_7"
             style="@style/DigitButtonStyle"
             android:text="@string/_7" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/eight_button"
+            android:id="@+id/btn_8"
             style="@style/DigitButtonStyle"
             android:text="@string/_8" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/nine_button"
+            android:id="@+id/btn_9"
             style="@style/DigitButtonStyle"
             android:text="@string/_9" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/multiply_button"
+            android:id="@+id/btn_multiply"
             style="@style/OperatorButtonStyle"
             android:text="@string/multiply" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/four_button"
+            android:id="@+id/btn_4"
             style="@style/DigitButtonStyle"
             android:text="@string/_4" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/five_button"
+            android:id="@+id/btn_5"
             style="@style/DigitButtonStyle"
             android:text="@string/_5" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/six_button"
+            android:id="@+id/btn_6"
             style="@style/DigitButtonStyle"
             android:text="@string/_6" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/minus_button"
+            android:id="@+id/btn_minus"
             style="@style/OperatorButtonStyle"
             android:text="@string/minus" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/one_button"
+            android:id="@+id/btn_1"
             style="@style/DigitButtonStyle"
             android:text="@string/_1" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/two_button"
+            android:id="@+id/btn_2"
             style="@style/DigitButtonStyle"
             android:text="@string/_2" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/three_button"
+            android:id="@+id/btn_3"
             style="@style/DigitButtonStyle"
             android:text="@string/_3" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/plus_button"
+            android:id="@+id/btn_plus"
             style="@style/OperatorButtonStyle"
             android:text="@string/plus" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/dot_button"
             style="@style/DigitButtonStyle"
-            android:text="@string/dot" />
+            android:enabled="false" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/zero_button"
+            android:id="@+id/btn_0"
             style="@style/DigitButtonStyle"
             android:text="@string/_0" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_period"
+            style="@style/DigitButtonStyle"
+            android:text="@string/dot" />
+
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/calculate_button"
+            android:id="@+id/btn_calculate"
             style="@style/OperatorButtonStyle"
             android:layout_width="match_parent"
-            android:layout_columnSpan="2"
-            android:layout_columnWeight="2"
+            android:backgroundTint="?attr/calculateButtonColor"
             android:text="@string/sum" />
 
     </GridLayout>

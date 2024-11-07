@@ -7,6 +7,6 @@
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="operator_background_tint">#8E4B12B2</color>
-    <color name="theme_secondary_text_color">#E7EAF0</color>
+   <color name="calculate_button_light_color">#FDCBA82B</color>
+    <color name="calculate_button_dark_color">#C4F6C27B</color>
 </resources>

@@ -1,0 +1,6 @@
+<resources>
+    <!-- Declare custom styleable attributes -->
+    <declare-styleable name="Base.Theme.Calculator">
+        <attr name="calculateButtonColor" format="color" />
+    </declare-styleable>
+</resources>

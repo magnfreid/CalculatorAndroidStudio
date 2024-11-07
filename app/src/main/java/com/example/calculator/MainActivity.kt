@@ -6,16 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.calculator.databinding.ActivityMainBinding
-import com.google.android.material.button.MaterialButton
-
-lateinit var binding: ActivityMainBinding
-lateinit var buttonHandler: ButtonHandler
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var calculationsHandler: CalculationsHandler
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -23,63 +21,52 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        buttonHandler = ButtonHandler(
-            binding.sumDisplayTV,
-            binding.operatorDisplayTV,
-            binding.calculateDisplayTV
-        )
-        val digitsButtons = listOf(
-            binding.zeroButton,
-            binding.oneButton,
-            binding.twoButton,
-            binding.threeButton,
-            binding.fourButton,
-            binding.fiveButton,
-            binding.sixButton,
-            binding.sevenButton,
-            binding.eightButton,
-            binding.nineButton,
-            binding.dotButton
-        )
-        val operatorButtons = listOf(
-            binding.plusButton,
-            binding.minusButton,
-            binding.multiplyButton,
-            binding.divideButton,
-            binding.powerOfButton,
-            binding.squareRootButton,
-        )
-        setClickListeners(digitsButtons, operatorButtons)
+        calculationsHandler = CalculationsHandler(binding)
+        setClickListeners()
     }
 
-    private fun setClickListeners(
-        digitsButtons: List<MaterialButton>,
-        operatorButtons: List<MaterialButton>
-    ) {
-        binding.clearButton.setOnClickListener {
-            buttonHandler.clearButtonClick()
+    private fun setClickListeners() {
+        val digitsButtons = listOf(
+            binding.btn0,
+            binding.btn1,
+            binding.btn2,
+            binding.btn3,
+            binding.btn4,
+            binding.btn5,
+            binding.btn6,
+            binding.btn7,
+            binding.btn8,
+            binding.btn9,
+            binding.btnPeriod
+        )
+        val operatorButtons = listOf(
+            binding.btnPlus,
+            binding.btnMinus,
+            binding.btnMultiply,
+            binding.btnDivide,
+            binding.btnPowOf,
+            binding.btnSquareRoot,
+        )
+
+        binding.btnClear.setOnClickListener {
+            calculationsHandler.clearButton()
         }
-        binding.calculateButton.setOnClickListener {
-            if (binding.calculateDisplayTV.text.toString() != "" && binding.operatorDisplayTV.text.toString() != "") {
-                buttonHandler.calculateButtonClick()
-            }
+        binding.btnCalculate.setOnClickListener {
+            calculationsHandler.calculateButton()
+
         }
         for (button in digitsButtons) {
             button.setOnClickListener {
-                if (button != binding.dotButton) {
-                    buttonHandler.digitButtonClick(button)
-                }
-                else if(!binding.calculateDisplayTV.text.contains('.') && binding.calculateDisplayTV.text.isNotEmpty()){
-                    buttonHandler.digitButtonClick(button)
+                if (button != binding.btnPeriod) {
+                    calculationsHandler.digitButton(button)
+                } else if (!binding.tvLower.text.contains('.') && binding.tvLower.text.isNotEmpty()) {
+                    calculationsHandler.digitButton(button)
                 }
             }
         }
-
         for (button in operatorButtons) {
             button.setOnClickListener {
-                if (binding.calculateDisplayTV.text.toString() != "" && binding.operatorDisplayTV.text.toString() == "") {
-                    buttonHandler.operatorButtonClick(button)
-                }
+                calculationsHandler.operatorButton(button)
             }
         }
     }
